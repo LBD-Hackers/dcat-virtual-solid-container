@@ -1,2 +1,4 @@
 # DCAT virtual Container API
-Placeholder
+This module contains functionality to create DCAT metadata resources ("dcat:Dataset" and "dcat:Catalog") and actual resources ("dcat:Distribution") of these datasets. A dcat:Catalog is a rdfs:subClassOf dcat:Dataset, and may "contain" (dcat:dataset) other datasets as well. This way, one or more "virtual" folder structures can be mimicked, by following the property chains of dcat:dataset to find child datasets. 
+
+As a consequence, the URL of resources is decoupled from the storage logic and resources can be "contained" in multiple containers or container trees at once. Either this virtual container structure is "manifested" as a resource on the Pod, or generated dynamically depending on some query parameters (e.g. group all resources with status "published" in a single dcat:Catalog). 
