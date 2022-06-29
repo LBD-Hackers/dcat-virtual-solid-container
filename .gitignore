@@ -1,0 +1,13 @@
+/node_modules
+/dist
+/build
+.history
+triples.json
+*.nq
+demo/node_modules
+demo/.angular
+
+/tests/artifacts/iGent.gltf
+/tests/artifacts/iGent.ttl
+/tests/artifacts/chairCAAD.gltf
+/tests/artifacts/chairCAAD.ttl

@@ -1,0 +1,67 @@
+<!DOCTYPE html><html class="default"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>lbdserver-client-api</title><meta name="description" content="Documentation for lbdserver-client-api"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.body.classList.add(localStorage.getItem("tsd-theme") || "os")</script><header><div class="tsd-page-toolbar"><div class="container"><div class="table-wrap"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption">Search</label><input type="text" id="tsd-search-field"/></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">lbdserver-client-api</a></div><div class="table-cell" id="tsd-widgets"><div id="tsd-filter"><a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a><div class="tsd-filter-group"><div class="tsd-select" id="tsd-filter-visibility"><span class="tsd-select-label">All</span><ul class="tsd-select-list"><li data-value="public">Public</li><li data-value="protected">Public/Protected</li><li data-value="private" class="selected">All</li></ul></div> <input type="checkbox" id="tsd-filter-inherited" checked/><label class="tsd-widget" for="tsd-filter-inherited">Inherited</label><input type="checkbox" id="tsd-filter-externals" checked/><label class="tsd-widget" for="tsd-filter-externals">Externals</label></div></div><a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a></div></div></div></div><div class="tsd-page-title"><div class="container"><h1> lbdserver-client-api </h1></div></div></header><div class="container container-main"><div class="row"><div class="col-8 col-content"><div class="tsd-panel tsd-typography">
+<a href="#lbdserver" id="lbdserver" style="color: inherit; text-decoration: none;">
+  <h1>LBDserver</h1>
+</a>
+<p>The LBDserver client API provides high-level functionality to manage resources on the LBDserver ecosystem. This ecosystem relies on the Solid specifications for data federation and decentralised identity. The LBDserver is a prototype of a &quot;federated Common Data Environment&quot; (CDE), and is one of the main deliverables of the PhD project of <a href="https://www.researchgate.net/profile/Jeroen-Werbrouck">Jeroen Werbrouck</a>. For more information, please have a look at the papers listed <a href="#cite">here</a> or at the <a href="https://github.com/LBD-Hackers/lbdserver-client-api/wiki">WIKI</a>.</p>
+
+<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+  <h2>Installation</h2>
+</a>
+<p>You can install this library with <code>npm install lbdserver-client-api</code>.</p>
+
+<a href="#content" id="content" style="color: inherit; text-decoration: none;">
+  <h2>Content</h2>
+</a>
+<p>The library exposes four Classes: </p>
+<ul>
+<li>LbdService: basic LBDserver-oriented interactions with the Pod (e.g. validate and create LBD project repository)</li>
+<li>LbdProject: interactions with LBDserver projects</li>
+<li>LbdDataset: interactions with datasets of LBDserver projects</li>
+<li>LbdConcept: interactions with &quot;abstract concepts&quot;, which relate the identifiers from multiple sources</li>
+<li>LbdDistribution: interactions with distributions of datasets of LBDserver projects.</li>
+</ul>
+<p>Further documentation on the functionality of each of these classes is available at <a href="https://lbd-hackers.github.io/lbdserver-client-api/">https://lbd-hackers.github.io/lbdserver-client-api/</a>.</p>
+
+<a href="#usage-and-testing" id="usage-and-testing" style="color: inherit; text-decoration: none;">
+  <h2>Usage and Testing</h2>
+</a>
+<p>In order to run tests (<code>npm run test</code>) which is also the preferred way of further developing the library (write test and make sure that it passes) you need to first have a local solid community server running, and you need to get credentials that you copy-paste to the <code>credentials.js</code> file.</p>
+
+<a href="#run-local-solid-community-server" id="run-local-solid-community-server" style="color: inherit; text-decoration: none;">
+  <h3>Run local Solid Community server</h3>
+</a>
+<ul>
+<li><code>npm install -g @solid/community-server</code></li>
+<li><code>community-solid-server</code></li>
+<li><a href="http://localhost:3000/idp/register/">Register a new account</a></li>
+<li>Now you have a new WebId (e.g. <a href="http://localhost:3000/test/profile/card#me">http://localhost:3000/test/profile/card#me</a>): a username for the Web!</li>
+</ul>
+
+<a href="#get-session-token" id="get-session-token" style="color: inherit; text-decoration: none;">
+  <h3>Get session token</h3>
+</a>
+<p>This is needed for running the tests or using the library server-side.</p>
+<ul>
+<li><code>npx @inrupt/generate-oidc-token</code></li>
+<li>Choose <code>My Solid Identity provider is not on the list</code> and type <code>http://localhost:3000/</code></li>
+<li>Choose <code>No</code> (&quot;Has your app been pre-registered by the administrator of the Pod server you are signing in to?)</li>
+<li>Type name of the app (<code>consolid</code>)</li>
+<li>Open link in browser (eg. <a href="http://localhost:3000/idp/auth?client_id=NFJUCr4Yc0ohwMetVisSB&amp;scope=openid%20offline_access%20webid&amp;response_type=code&amp;redirect_uri=http%3A%2F%2Flocalhost%3A3001%2F&amp;code_challenge=nOIZMSXw0u0OL9GJg7hJMVN09gn05xsM_nxlhfkH6rU&amp;state=7eTv9ZA1rPwx2CH1CrTJqIAVafbc95lZOyxpaZ3_1BM&amp;code_challenge_method=S256&amp;prompt=consent">http://localhost:3000/idp/auth?client_id=NFJUCr4Yc0ohwMetVisSB&amp;scope=openid%20offline_access%20webid&amp;response_type=code&amp;redirect_uri=http%3A%2F%2Flocalhost%3A3001%2F&amp;code_challenge=nOIZMSXw0u0OL9GJg7hJMVN09gn05xsM_nxlhfkH6rU&amp;state=7eTv9ZA1rPwx2CH1CrTJqIAVafbc95lZOyxpaZ3_1BM&amp;code_challenge_method=S256&amp;prompt=consent</a>) and login</li>
+<li>You shouls now receive credentials like below</li>
+</ul>
+<pre><code class="language-json"><span class="hl-0">{</span><br/><span class="hl-0">  </span><span class="hl-1">&quot;refreshToken&quot;</span><span class="hl-0"> : </span><span class="hl-2">&quot;BB&quot;</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-1">&quot;clientId&quot;</span><span class="hl-0">     : </span><span class="hl-2">&quot;AA&quot;</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-1">&quot;clientSecret&quot;</span><span class="hl-0"> : </span><span class="hl-2">&quot;XX&quot;</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-1">&quot;oidcIssuer&quot;</span><span class="hl-0">   : </span><span class="hl-2">&quot;http://localhost:3000/&quot;</span><span class="hl-0">,</span><br/><span class="hl-0">}</span>
+</code></pre>
+
+<a href="#build-and-deploy" id="build-and-deploy" style="color: inherit; text-decoration: none;">
+  <h2>Build and deploy</h2>
+</a>
+<p>Building the library is handled with the <code>npm run build</code> command. This generates the <code>lib</code> folder and its content. We build ESM and UMD bundles that can be directly included in an HTML document. Furthermore, we build a CommonJS and an ESM version.</p>
+<p>Bundles are build using the configuration in <code>rollup.config.js</code>.</p>
+
+<a href="#cite" id="cite" style="color: inherit; text-decoration: none;">
+  <h2>Cite</h2>
+</a>
+<p>When citing work on the LBDserver, please refer to:</p>
+<pre><code><span class="hl-0">@</span><span class="hl-3">article</span><span class="hl-0">{</span><span class="hl-3">werbroucklbdserver</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-3">title</span><span class="hl-0">={LBDserver - a Federated Ecosystem for Heterogeneous Linked Building </span><span class="hl-3">Data</span><span class="hl-0">},</span><br/><span class="hl-0">  </span><span class="hl-3">author</span><span class="hl-0">={</span><span class="hl-3">Werbrouck</span><span class="hl-0">, Jeroen and </span><span class="hl-3">Pauwels</span><span class="hl-0">, Pieter and </span><span class="hl-3">Beetz</span><span class="hl-0">, Jakob and </span><span class="hl-3">Mannens</span><span class="hl-0">, </span><span class="hl-3">Erik</span><span class="hl-0">}</span><br/><span class="hl-0">}</span><br/><br/><span class="hl-0">@</span><span class="hl-3">inproceedings</span><span class="hl-0">{</span><span class="hl-3">werbrouck2021data</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-3">title</span><span class="hl-0">={Data patterns for the organisation of federated linked building </span><span class="hl-3">data</span><span class="hl-0">},</span><br/><span class="hl-0">  </span><span class="hl-3">author</span><span class="hl-0">={</span><span class="hl-3">Werbrouck</span><span class="hl-0">, Jeroen and </span><span class="hl-3">Pauwels</span><span class="hl-0">, Pieter and </span><span class="hl-3">Beetz</span><span class="hl-0">, Jakob and </span><span class="hl-3">Mannens</span><span class="hl-0">, </span><span class="hl-3">Erik</span><span class="hl-0">},</span><br/><span class="hl-0">  </span><span class="hl-3">booktitle</span><span class="hl-0">={Proceedings of the 9th Linked Data in Architecture and Construction </span><span class="hl-3">Workshop</span><span class="hl-0">},</span><br/><span class="hl-0">  </span><span class="hl-3">pages</span><span class="hl-0">={</span><span class="hl-4">79</span><span class="hl-3">-</span><span class="hl-4">90</span><span class="hl-0">},</span><br/><span class="hl-0">  </span><span class="hl-3">year</span><span class="hl-0">={</span><span class="hl-4">2021</span><span class="hl-0">}</span><br/><span class="hl-0">}</span><br/><br/><span class="hl-0">@</span><span class="hl-3">inproceedings</span><span class="hl-0">{</span><span class="hl-3">werbrouck2019towards</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-3">title</span><span class="hl-0">={Towards a decentralised common data environment using linked building data and the solid </span><span class="hl-3">ecosystem</span><span class="hl-0">},</span><br/><span class="hl-0">  </span><span class="hl-3">author</span><span class="hl-0">={</span><span class="hl-3">Werbrouck</span><span class="hl-0">, Jeroen and </span><span class="hl-3">Pauwels</span><span class="hl-0">, Pieter and </span><span class="hl-3">Beetz</span><span class="hl-0">, Jakob and van </span><span class="hl-3">Berlo</span><span class="hl-0">, L{\</span><span class="hl-2">&#39;e}on}</span><span class="hl-5">,</span><br/><span class="hl-3">  booktitle={36th CIB W78 2019 Conference},</span><br/><span class="hl-3">  pages={113--123},</span><br/><span class="hl-3">  year={2019},</span><br/><span class="hl-3">  url = {https:</span><span class="hl-6">//biblio.ugent.be/publication/8633673}</span><br/><span class="hl-0">}</span><br/>
+</code></pre>
+</div></div><div class="col-4 col-menu menu-sticky-wrap menu-highlight"><nav class="tsd-navigation primary"><ul><li class="current"><a href="modules.html">Modules</a></li><li class=" tsd-kind-module"><a href="modules/LbdConcept.html">Lbd<wbr/>Concept</a></li><li class=" tsd-kind-module"><a href="modules/LbdDataset.html">Lbd<wbr/>Dataset</a></li><li class=" tsd-kind-module"><a href="modules/LbdDistribution.html">Lbd<wbr/>Distribution</a></li><li class=" tsd-kind-module"><a href="modules/LbdProject.html">Lbd<wbr/>Project</a></li><li class=" tsd-kind-module"><a href="modules/LbdService.html">Lbd<wbr/>Service</a></li><li class=" tsd-kind-module"><a href="modules/index.html">index</a></li></ul></nav></div></div></div><footer class="with-border-bottom"><div class="container"><h2>Legend</h2><div class="tsd-legend-group"><ul class="tsd-legend"><li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li></ul></div><h2>Settings</h2><p>Theme <select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></p></div></footer><div class="container tsd-generator"><p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div><div class="overlay"></div><script src="assets/main.js"></script></body></html>

@@ -1,0 +1,45 @@
+{
+    "users": {
+        "http://localhost:3000/dc/profile/card#me": {
+            "webId": "http://localhost:3000/dc/profile/card#me",
+            "name": "dc",
+            "email": "dc@arch.rwth-aachen.de",
+            "password": "test123",
+            "idp": "http://localhost:3000",
+            "pathsToSynchronise": [
+                "C:/Users/Administrator/OneDrive - UGent/RWTH/reiffTwin/sorted/1_reiff/3_dc-lehrstuhl"
+            ]
+        },
+        "http://localhost:3000/kg/profile/card#me": {
+            "webId": "http://localhost:3000/kg/profile/card#me",
+            "name": "kg",
+            "email": "kg@arch.rwth-aachen.de",
+            "password": "test123",
+            "idp": "http://localhost:3000",
+            "pathsToSynchronise": [
+                "C:/Users/Administrator/OneDrive - UGent/RWTH/reiffTwin/sorted/1_reiff/5_kunstgeschichte-bib"
+            ]
+        },
+        "http://localhost:3000/bauko/profile/card#me": {
+            "webId": "http://localhost:3000/bauko/profile/card#me",
+            "name": "bauko",
+            "email": "bauko@arch.rwth-aachen.de",
+            "password": "test123",
+            "idp": "http://localhost:3000",
+            "pathsToSynchronise": [
+                "C:/Users/Administrator/OneDrive - UGent/RWTH/reiffTwin/sorted/1_reiff/4_bauko-lehrstuhl"
+            ]
+        },
+        "http://localhost:3000/sekretariat/profile/card#me": {
+            "webId": "http://localhost:3000/dc/profile/card#me",
+            "name": "sekretariat",
+            "email": "sekretariat@arch.rwth-aachen.de",
+            "password": "test123",
+            "idp": "http://localhost:3000",
+            "pathsToSynchronise": [
+                "C:/Users/Administrator/OneDrive - UGent/RWTH/reiffTwin/sorted/1_reiff/1_bildarchiv",
+                "C:/Users/Administrator/OneDrive - UGent/RWTH/reiffTwin/sorted/1_reiff/2_gesamtgebäude"
+            ]
+        }
+    }
+}
